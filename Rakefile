@@ -1,6 +1,7 @@
 require 'rake/testtask'
 
 task :default => [:test]
+
 Rake::TestTask.new(:test) do |test|
   test.libs << 'test'
 
@@ -9,3 +10,8 @@ Rake::TestTask.new(:test) do |test|
 
   test.verbose = true
 end
+
+task :jekyll do
+  sh "jekyll serve --detach"
+end
+  

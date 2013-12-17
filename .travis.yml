@@ -11,7 +11,7 @@ before_install:
   - phantomjs --version # optional, output the phantomjs version
 
 before_script:
-  - rake jekyll detach=true
+  - rake jekyll
   - sleep 3
 
 script:
