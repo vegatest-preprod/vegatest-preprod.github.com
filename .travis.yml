@@ -1,18 +1,16 @@
-# Sample .travis.yml file:
 language: ruby
 
 rvm: # the Ruby versions to be used
   - 2.0.0
 
 before_install:
-  - gem update # optional, update all gems
+  - gem update
   - gem install jekyll
   - gem install selenium-webdriver
-  - phantomjs --version # optional, output the phantomjs version
+  - phantomjs --version
 
 before_script:
   - rake jekyll
-  - sleep 3
-
+  
 script:
   - rake
