@@ -9,5 +9,5 @@ Rake::TestTask.new(:test) do |test|
 end
 
 task :jekyll do
-  `jekyll serve --detach`
+  sh "jekyll serve --detach"
 end
