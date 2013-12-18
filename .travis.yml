@@ -10,7 +10,7 @@ before_install:
   - phantomjs --version
 
 before_script:
-  - rake jekyll
+  - rake local
   
 script:
   - rake

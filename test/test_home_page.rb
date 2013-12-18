@@ -6,7 +6,7 @@ module Test
 
     def setup
       @driver = Selenium::WebDriver.for :phantomjs
-      @driver.navigate.to('http://localhost:4000/')
+      @driver.navigate.to(ENV["SITE_URL"])
     end
 
     def teardown
