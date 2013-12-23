@@ -21,7 +21,5 @@ script:
 
 notifications:
   email:
-    recipients:
-      - vera_kruhliakova@epam.com
-    on_success: [always]
-    on_failure: [always]
+    - vera_kruhliakova@epam.com
+    - vera.kruhliakova@gmail.com
