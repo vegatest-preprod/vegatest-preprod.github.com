@@ -1,7 +1,7 @@
 require 'test/unit'
 
 module Test
-  class TestHomePage < Test::Unit::TestCase
+  class TestCName < Test::Unit::TestCase
 
     PRODUCTION_REPOSITORY = "edmundsapi.github.com"
 

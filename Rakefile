@@ -4,10 +4,16 @@ ENV["SITE_URL"] = "http://localhost:4000"
 
 task :default => [:test]
 
-Rake::TestTask.new(:test) do |test|
+task :test => [:unit_test, :integration_test]
+
+Rake::TestTask.new(:unit_test) do |test|
   test.libs << 'test'
   test.test_files = FileList['test/test_*.rb']
   test.verbose = true
+end
+
+task :integration_test do
+  sh "cucumber test"
 end
 
 task :jekyll do
