@@ -22,4 +22,3 @@ script:
 notifications:
   email:
     - vera_kruhliakova@epam.com
-    - vera.kruhliakova@gmail.com
