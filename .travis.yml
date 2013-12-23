@@ -6,6 +6,7 @@ rvm: # the Ruby versions to be used
 before_install:
   - gem update
   - gem install jekyll
+  - gem install selenium-webdriver
   - gem install cucumber
   - gem install rspec
   - gem install capybara
@@ -17,3 +18,10 @@ before_script:
   
 script:
   - rake test
+
+notifications:
+  email:
+    recipients:
+      - vera_kruhliakova@epam.com
+    on_success: [always]
+    on_failure: [always]
