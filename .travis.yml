@@ -4,8 +4,11 @@ rvm: # the Ruby versions to be used
   - 2.0.0
 
 before_install:
-  - sudo apt-get install openjdk-6-jdk
+  - sudo apt-get install openjdk-7-jdk
   - java -version
+  - mvn -version
+  - gradle -v
+  - ant -version
   - gem update
   - gem install jekyll
   - gem install selenium-webdriver
