@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class HelloStepdefs {
     private Hello hello;
@@ -12,6 +13,7 @@ public class HelloStepdefs {
 
     @Given("^I have a hello app with \"([^\"]*)\"$")
     public void I_have_a_hello_app_with(String greeting) {
+        assertTrue(false);
         hello = new Hello(greeting);
     }
 

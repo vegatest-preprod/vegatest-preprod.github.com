@@ -11,12 +11,12 @@ before_install:
   - ant -version
   - gem update
   - gem install jekyll
-  - gem install selenium-webdriver
-  - gem install cucumber
-  - gem install rspec
-  - gem install capybara
-  - gem install poltergeist
-  - phantomjs --version
+#  - gem install selenium-webdriver
+#  - gem install cucumber
+#  - gem install rspec
+#  - gem install capybara
+#  - gem install poltergeist
+#  - phantomjs --version
 
 before_script:
   - rake local
