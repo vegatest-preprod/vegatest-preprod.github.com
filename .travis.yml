@@ -22,7 +22,9 @@ before_script:
   - rake local
   
 script:
-  - rake test
+  - cd test/acceptance
+  - mvn clean install
+  - cd
 
 notifications:
   email:

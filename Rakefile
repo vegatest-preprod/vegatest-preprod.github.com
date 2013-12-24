@@ -4,16 +4,20 @@ ENV["SITE_URL"] = "http://localhost:4000"
 
 task :default => [:test]
 
-task :test => [:unit_test, :integration_test]
+task :test => ['test:unit', 'test:acceptance']
 
-Rake::TestTask.new(:unit_test) do |test|
-  test.libs << 'test'
-  test.test_files = FileList['test/test_*.rb']
-  test.verbose = true
-end
+namespace 'test' do
 
-task :integration_test do
-  sh "cucumber test"
+  Rake::TestTask.new('unit') do |test|
+    test.libs << 'test'
+    test.test_files = FileList['test/test_*.rb']
+    test.verbose = true
+  end
+
+  task :acceptance do
+    sh "cucumber test"
+  end
+
 end
 
 task :jekyll do
@@ -23,7 +27,7 @@ end
 task :local => [:jekyll]
 
 task :remote do
-  file = File.open("CNAME", "r")
-  ENV["SITE_URL"] = "http://" + file.read.gsub!(/\s+/, "")
+  file = File.open("CNAME")
+  ENV["SITE_URL"] = "http://" + file.read.gsub(/\s+/, "")
   file.close
 end
