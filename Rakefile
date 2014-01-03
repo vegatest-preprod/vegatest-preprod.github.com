@@ -21,13 +21,11 @@ namespace 'test' do
 end
 
 task :jekyll do
-  sh "jekyll serve --detach"
-end
-
-task :local => [:jekyll]
-
-task :remote do
-  file = File.open("CNAME")
-  ENV["SITE_URL"] = "http://" + file.read.gsub(/\s+/, "")
-  file.close
+  if ENV["REMOTE"] == 'true'
+    file = File.open("CNAME")
+    ENV["SITE_URL"] = "http://" + file.read.gsub(/\s+/, "")
+    file.close
+  else
+    sh "jekyll serve --detach"
+  end
 end
