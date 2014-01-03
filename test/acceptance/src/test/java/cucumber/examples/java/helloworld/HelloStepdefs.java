@@ -13,7 +13,6 @@ public class HelloStepdefs {
 
     @Given("^I have a hello app with \"([^\"]*)\"$")
     public void I_have_a_hello_app_with(String greeting) {
-        assertTrue(false);
         hello = new Hello(greeting);
     }
 
