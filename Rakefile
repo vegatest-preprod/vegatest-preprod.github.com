@@ -26,6 +26,6 @@ task :jekyll do
     ENV["SITE_URL"] = "http://" + file.read.gsub(/\s+/, "")
     file.close
   else
-    sh "jekyll serve --detach"
+    sh "gem install jekyll; jekyll serve --detach"
   end
 end

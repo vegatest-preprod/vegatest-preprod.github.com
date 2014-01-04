@@ -11,10 +11,6 @@ before_install:
   - sudo apt-get install openjdk-7-jdk
   - java -version
   - mvn -version
-  - gradle -v
-  - ant -version
-  - gem update
-  - gem install jekyll
 #  - gem install selenium-webdriver
 #  - gem install cucumber
 #  - gem install rspec
