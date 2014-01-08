@@ -25,7 +25,7 @@ before_script:
 script:
   - echo test
 
-after_success:
+after_script:
   - rake deploy
 
 notifications:

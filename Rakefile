@@ -35,6 +35,8 @@ task :deploy do
   source_branch = 'dev'
   deploy_branch = 'master'
   
+  puts "Test results: #{ENV['TRAVIS_TEST_RESULT']}"
+  
   if ENV['TRAVIS_PULL_REQUEST'] == "true" and ENV['TRAVIS_BRANCH'] != source_branch
     puts "Skipping deployment from #{ENV['TRAVIS_BRANCH']}"
     next
@@ -54,6 +56,6 @@ task :deploy do
   File.delete '.git/credentials'
   
   if not deployed
-    abort "rake aborted: failed to deploy source"
+    exit -1
   end
 end
