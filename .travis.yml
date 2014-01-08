@@ -23,7 +23,7 @@ before_script:
   - rake jekyll
   
 script:
-  - echo test
+  - rake test
   - rake deploy
 
 notifications:
