@@ -7,16 +7,14 @@ env:
   - REMOTE=false
   - REMOTE=true
 
+branches:
+  only:
+    - dev
+
 before_install:
   - sudo apt-get install openjdk-7-jdk
   - java -version
   - mvn -version
-#  - gem install selenium-webdriver
-#  - gem install cucumber
-#  - gem install rspec
-#  - gem install capybara
-#  - gem install poltergeist
-#  - phantomjs --version
 
 before_script:
   - rake jekyll
@@ -25,6 +23,9 @@ script:
   - cd test/acceptance
   - mvn clean install
   - cd
+
+after_success:
+  - rake deploy
 
 notifications:
   email:
