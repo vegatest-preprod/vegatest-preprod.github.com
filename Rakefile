@@ -32,18 +32,14 @@ end
 
 desc 'Publish site to GitHub Pages'
 task :deploy do
-  if ENV['TRAVIS_PULL_REQUEST'] == "false" and ENV['TRAVIS_BRANCH'] == "dev"
-      sh "git checkout #{ENV['TRAVIS_BRANCH']}"
-      sh "git branch -v -r"
+  source_branch = 'dev'
+  deploy_branch = 'master'
+  if ENV['TRAVIS_PULL_REQUEST'] == "false" and ENV['TRAVIS_BRANCH'] == source_branch
       repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
       sh "git remote set-url --push origin #{repo}"
-      sh "git config user.name '#{ENV['GIT_NAME']}'"
-      sh "git config user.email '#{ENV['GIT_EMAIL']}'"
       sh 'git config credential.helper "store --file=.git/credentials"'
-      File.open('.git/credentials', 'w') do |f|
-        f.write("https://#{ENV['GH_TOKEN']}:x-oauth-basic@github.com")
-      end
-      sh "git push origin HEAD:master"
+      sh "echo https://#{ENV['GH_TOKEN']}:x-oauth-basic@github.com > .git/credentials"
+      sh "git push origin #{source_branch}:#{deploy_branch}"
       File.delete '.git/credentials'
   end
 end

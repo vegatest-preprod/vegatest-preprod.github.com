@@ -7,13 +7,12 @@ env:
   matrix:
     - REMOTE=true
   global:
-    - GIT_NAME=Travis-CI
-    - GIT_EMAIL=vera_kruhliakova@epam.com
     - secure: PW/0i0zeRGEAZy64MeEmxt7kaaLtQYMbh0N0/SHJ3tWONmgo8rsbRsHif69B/UGdVk9Pne0uL17GangbXpjmks31j0TW0MyT277tAdTXxFp1fudyOI89KqijQRCiwTjyRbdZfmJpeQ33f657sCv++Li82LjVZ1MsxvBcS1ekwHg=
 
 branches:
   only:
     - dev
+    - master
 
 before_install:
   - sudo apt-get install openjdk-7-jdk
