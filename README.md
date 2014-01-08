@@ -34,3 +34,7 @@ Run acceptance tests only:
 Run acceptance tests against remote deployment:
 
     rake remote test:acceptance
+
+## Deployment
+
+Dev branch is autodeployed to master branch.
