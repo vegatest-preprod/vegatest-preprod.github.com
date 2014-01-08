@@ -35,7 +35,10 @@ task :deploy do
   source_branch = 'dev'
   deploy_branch = 'master'
   
-  puts "Test results: #{ENV['TRAVIS_TEST_RESULT']}"
+  if ENV['TRAVIS_TEST_RESULT'].to_i != 0
+    puts "Skipping deployment due to test failure"
+    next
+  end
   
   if ENV['TRAVIS_PULL_REQUEST'] == "true" and ENV['TRAVIS_BRANCH'] != source_branch
     puts "Skipping deployment from #{ENV['TRAVIS_BRANCH']}"

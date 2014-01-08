@@ -24,8 +24,6 @@ before_script:
   
 script:
   - echo test
-
-after_script:
   - rake deploy
 
 notifications:
