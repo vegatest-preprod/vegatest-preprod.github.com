@@ -41,13 +41,12 @@ task :deploy do
   end
   
   repo = %x(git config remote.origin.url).gsub(/^git:/, 'https:')
-  sh "git remote set-url --push origin #{repo}"
-  sh 'git config credential.helper "store --file=.git/credentials"'
+  system "git remote set-url --push origin #{repo}"
+  system 'git config credential.helper "store --file=.git/credentials"'
   File.open('.git/credentials', 'w') do |f|
     f.write("https://#{ENV['GH_TOKEN']}:x-oauth-basic@github.com")
   end
-  status = system "sh git push origin #{source_branch}:#{deploy_branch}"
-  puts "status: #{status}"
+  status = system "git push origin #{source_branch}:#{deploy_branch}"
   File.delete '.git/credentials'
-  status
+  return status.to_s.to_i
 end
