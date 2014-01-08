@@ -39,7 +39,7 @@ task :deploy do
       sh "git remote set-url --push origin #{repo}"
       sh 'git config credential.helper "store --file=.git/credentials"'
       sh "echo https://#{ENV['GH_TOKEN']}:x-oauth-basic@github.com > .git/credentials"
-      sh "git push origin #{source_branch}:#{deploy_branch}"
+      sh "git push origin #{source_branch}:#{deploy_branch} || exit 1"
       File.delete '.git/credentials'
   end
 end
