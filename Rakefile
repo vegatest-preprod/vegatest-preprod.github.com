@@ -42,7 +42,7 @@ task :deploy do
     next
   end
   
-  if ENV['TRAVIS_PULL_REQUEST'] == "true" and ENV['TRAVIS_BRANCH'] != source_branch
+  if ENV['TRAVIS_PULL_REQUEST'] == "true" or ENV['TRAVIS_BRANCH'] != source_branch
     puts "Skipping deployment from #{ENV['TRAVIS_BRANCH']}"
     next
   end
