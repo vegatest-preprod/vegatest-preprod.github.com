@@ -21,17 +21,19 @@ namespace 'test' do
 end
 
 task :jekyll do
-  if ENV["REMOTE"] == 'true'
+  if ENV['TRAVIS_BRANCH'] == 'master'
+    sh "export REMOTE=true"
     file = File.open("CNAME")
     ENV["SITE_URL"] = "http://" + file.read.gsub(/\s+/, "")
     file.close
   else
-    sh "gem install jekyll; jekyll serve --detach"
+    #sh "gem install jekyll; jekyll serve --detach"
   end
 end
 
 desc 'Publish site to GitHub Pages'
 task :deploy do
+  puts "remote: #{ENV['REMOTE']}"
   source_branch = 'dev'
   deploy_branch = 'master'
   
@@ -59,6 +61,6 @@ task :deploy do
   File.delete '.git/credentials'
   
   if not deployed
-    exit -1
+    abort "rake aborted: failed to deploy source"
   end
 end
