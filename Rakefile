@@ -42,10 +42,8 @@ task :deploy do
   system "git branch -v -a"
   system "git remote set-url --push origin #{repo}"
   system "git remote -v"
-  puts "git config user.name '#{ENV['GIT_NAME']}'"
-  system "git config user.name '#{ENV['GIT_NAME']}'"
-  puts "git config user.email '#{ENV['GIT_EMAIL']}'"
-  system "git config user.email '#{ENV['GIT_EMAIL']}'"
+  system "git config user.name 'Travis-CI'"
+  system "git config user.email 'vera_kruhliakova@epam.com'"
   puts "https://#{ENV['GH_TOKEN']}:@github.com"
   system 'git config credential.helper "store --file=.git/credentials"'
   File.open('.git/credentials', 'w') do |f|

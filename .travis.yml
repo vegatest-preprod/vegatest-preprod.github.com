@@ -4,7 +4,10 @@ rvm: # the Ruby versions to be used
   - 2.0.0
 
 env:
-  - REMOTE=true
+  matrix:
+    - REMOTE=true
+  global:
+    secure: j0+qr1RDs9Zg6j6/v2Y43iRov8oD97Q7MDtcsmVGE751YnfxxBHcqzZVz2ND8pmpgBxKMgE2FhjpXYxtFYvR36118KF59ew2+f8Gu/1oIrUvPoECafqDfgrGIla6zKjDJrnK3gSkq1F72+ffXRqTOXK1bFwizo83Z0UhEGI2wUI=
 
 branches:
   only:
