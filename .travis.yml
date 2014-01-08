@@ -7,7 +7,9 @@ env:
   matrix:
     - REMOTE=true
   global:
-    secure: j0+qr1RDs9Zg6j6/v2Y43iRov8oD97Q7MDtcsmVGE751YnfxxBHcqzZVz2ND8pmpgBxKMgE2FhjpXYxtFYvR36118KF59ew2+f8Gu/1oIrUvPoECafqDfgrGIla6zKjDJrnK3gSkq1F72+ffXRqTOXK1bFwizo83Z0UhEGI2wUI=
+    - GIT_NAME=Travis-CI
+    - GIT_EMAIL=vera_kruhliakova@epam.com
+    - secure: PW/0i0zeRGEAZy64MeEmxt7kaaLtQYMbh0N0/SHJ3tWONmgo8rsbRsHif69B/UGdVk9Pne0uL17GangbXpjmks31j0TW0MyT277tAdTXxFp1fudyOI89KqijQRCiwTjyRbdZfmJpeQ33f657sCv++Li82LjVZ1MsxvBcS1ekwHg=
 
 branches:
   only:
