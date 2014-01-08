@@ -4,7 +4,6 @@ rvm: # the Ruby versions to be used
   - 2.0.0
 
 env:
-  - REMOTE=false
   - REMOTE=true
 
 branches:
