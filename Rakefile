@@ -46,7 +46,14 @@ task :deploy do
   File.open('.git/credentials', 'w') do |f|
     f.write("https://#{ENV['GH_TOKEN']}:x-oauth-basic@github.com")
   end
-  status = system "git push origin #{source_branch}:#{deploy_branch}"
+  
+  puts "Deploying from #{source_branch} to #{deploy_branch}"
+  deployed = system "git push origin #{source_branch}:#{deploy_branch}"
+  puts "Deployed: #{deployed}"
+  
   File.delete '.git/credentials'
-  return status.to_s.to_i
+  
+  if not deployed
+    abort "rake aborted: failed to deploy source"
+  end
 end
